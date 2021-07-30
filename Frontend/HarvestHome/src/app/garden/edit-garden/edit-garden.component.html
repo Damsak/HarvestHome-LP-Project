@@ -1,0 +1,49 @@
+<div class="card">
+    <div class="card-header text-center"style="width: 50%; margin: 0 auto; font-family: 'Oswald'">
+        <h1>Edit Garden</h1>
+    </div>
+    <div class="col-sm-3 sidenav" style="width: 200px;">
+        <button type="button" class="btn btn-secondary" (click)="navigatetoGardenList()" style="width: 200px; margin-left: 10px;"> Go back </button> 
+    </div>
+    <div class="card-body"  style="width:1000px; margin:0 auto; border-radius: 5; border: 2px solid #161615; border-radius: 10px; margin-bottom: 20px;">
+
+        <form #GardenForm = "ngForm" (ngSubmit) = "updateGarden(GardenForm.value)">
+
+            <fieldset disabled>
+            <div class="form-group">
+                <label for="disabledTextInput">ID</label>
+                <input type="text"  name="id" class="form-control" id="firstName" [ngModel] = "id">
+            </div>
+            </fieldset>
+
+            <div class="form-group">
+              <label for="owner">Owner</label>
+              <input type="text"  name="owner" class="form-control" id="owner" [ngModel] = "owner">
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="crops">Crops</label>
+                <input type="text" class="form-control" name="crops" [ngModel] = "crops">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" class="form-control" name="location" [ngModel] = "location">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="profileId">ProfileId</label>
+                <input type="text" class="form-control" name="profileId" [ngModel] = "profileId">
+            </div>
+            <br>
+            <br>
+
+            <button type="submit" class="btn btn-primary">Update Garden</button>
+        </form>
+
+
+
+
+  </div>
+</div>
