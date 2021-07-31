@@ -1,0 +1,52 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @key(fields: String!) on OBJECT | INTERFACE
+
+directive @extends on OBJECT | INTERFACE
+
+directive @external on OBJECT | FIELD_DEFINITION
+
+directive @requires(fields: String!) on FIELD_DEFINITION
+
+directive @provides(fields: String!) on FIELD_DEFINITION
+
+type Garden {
+  id: ID!
+  owner: String!
+  crops: String!
+  location: String!
+  profile: Profile!
+  profileId: String!
+}
+
+type Profile {
+  id: ID!
+  gardens: [Garden!]!
+}
+
+type Query {
+  getAllGardens: [Garden!]!
+  garden(id: String!): Garden!
+}
+
+type Mutation {
+  createGarden(gardenInput: GardenCreateDTO!): Garden!
+  updateGarden(gardenUpdateInput: GardenUpdateDTO!, id: String!): Garden!
+  deleteGarden(id: String!): Garden!
+}
+
+input GardenCreateDTO {
+  owner: String!
+  crops: String!
+  location: String!
+  profileId: String!
+}
+
+input GardenUpdateDTO {
+  owner: String!
+  crops: String!
+  location: String!
+  profileId: String!
+}

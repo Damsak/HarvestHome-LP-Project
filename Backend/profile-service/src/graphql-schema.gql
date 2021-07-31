@@ -1,0 +1,46 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @key(fields: String!) on OBJECT | INTERFACE
+
+directive @extends on OBJECT | INTERFACE
+
+directive @external on OBJECT | FIELD_DEFINITION
+
+directive @requires(fields: String!) on FIELD_DEFINITION
+
+directive @provides(fields: String!) on FIELD_DEFINITION
+
+type Profile {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  location: String!
+  goal: String
+}
+
+type Query {
+  getAllProfiles: [Profile!]!
+  profile(id: String!): Profile!
+}
+
+type Mutation {
+  createProfile(profileInput: ProfileCreateDTO!): Profile!
+  updateProfile(profileUpdateInput: ProfileUpdateDTO!, id: String!): Profile!
+  deleteProfile(id: String!): Profile!
+}
+
+input ProfileCreateDTO {
+  firstName: String!
+  lastName: String!
+  location: String!
+  goal: String
+}
+
+input ProfileUpdateDTO {
+  firstName: String!
+  lastName: String!
+  location: String!
+  goal: String
+}
