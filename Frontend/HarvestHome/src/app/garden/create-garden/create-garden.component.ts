@@ -20,14 +20,24 @@ export class CreateGardenComponent implements OnInit {
     this.router.navigate(['/gardenlist'])
   }
 
+  // getGardenValues(values:any){
+  //   console.log(values);
+
+
+  //   this.gardenService.onAdd(values);
+    
+  //   // owners.push(values);
+  //   //this.router.navigate(['/ownerlist'])
+    
+  // }
+
   getGardenValues(values:any){
     console.log(values);
 
+    this.gardenService.onAdd(values).subscribe((data) => {
+      this.router.navigate(['/gardenlist'])
+    });
 
-    this.gardenService.onAdd(values);
-    
-    // owners.push(values);
-    //this.router.navigate(['/ownerlist'])
     
   }
 

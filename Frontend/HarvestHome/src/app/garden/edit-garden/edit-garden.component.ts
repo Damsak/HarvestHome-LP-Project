@@ -4,12 +4,12 @@ import {Router} from "@angular/router";
 import { GardenService } from '../garden.service';
 import { Garden } from '../models/garden';
 import { gql,Apollo } from 'apollo-angular';
-import { JsonpClientBackend } from '@angular/common/http';
+
 
 
 const FindOne_Garden = gql`
 query ($id: String!){
-findOne(id:$id) {
+garden (id:$id) {
   id
   owner
   crops
@@ -36,7 +36,8 @@ export class EditGardenComponent implements OnInit {
   private sub: any;
   finalGarden: any;
 
-  updatedOwner:any;
+  gardenToBeUpdated:any;
+
 
 
   constructor(private router: Router,private route: ActivatedRoute, private gardenService: GardenService,private apollo:Apollo) {
@@ -51,52 +52,63 @@ export class EditGardenComponent implements OnInit {
 
     if (this.paramId) {
 
-      this.apollo.watchQuery<any>({
-        query: FindOne_Garden,
-        variables: {
-          "id": this.paramId
-        },
-      }).valueChanges.subscribe({
-        next: data => {
-            this.selectedGarden = data;
-            this.id = this.selectedGarden.data.findOne.id;
-            this.owner =this.selectedGarden.data.findOne.owner;
-            this.crops = this.selectedGarden.data.findOne.crops;
-            this.location = this.selectedGarden.data.findOne.location;
-            this.profileId = this.selectedGarden.data.findOne.profileId;
+      // this.gardenToBeUpdated = this.gardenService.onGetGarden(this.paramId) {
+
+      // }
+
+
+    //   this.apollo.watchQuery<any>({
+    //     query: FindOne_Garden,
+    //     variables: {
+    //       "id": this.paramId
+    //     },
+    //   }).valueChanges.subscribe({
+    //     next: data => {
+    //         this.selectedGarden = data;
+    //         this.id = this.selectedGarden.data.garden.id;
+    //         this.owner =this.selectedGarden.data.garden.owner;
+    //         this.crops = this.selectedGarden.data.garden.crops;
+    //         this.location = this.selectedGarden.data.garden.location;
+    //         this.profileId = this.selectedGarden.data.garden.profileId;
             
-        },
-        error: error => { 
-            console.error('There was an error!');
-        },
-    })
+    //     },
+    //     error: error => { 
+    //         console.error('There was an error!');
+    //     },
+    // })
 
-      // this.gardenService.onGetNewGarden(this.paramId).subscribe(
-      //     res => {
-      //       console.log("In editGarden " + JSON.stringify(res));
-      //       this.finalGarden = res;
-      //       this.id = this.finalGarden._id;
-      //       this.owner =this.finalGarden.owner;
-      //       this.crops = this.finalGarden.crops;
-      //       this.location = this.finalGarden.location;
-      //       this.profileId = this.finalGarden.profileId;
+    this.gardenService.onGetGarden(this.paramId) .subscribe((data) => {
+          
+            this.id = data.data.garden.id;
+            this.owner = data.data.garden.owner;
+            this.crops = data.data.garden.crops;
+            this.location = data.data.garden.location;
+            this.profileId = data.data.garden.profileId;
 
-      //     },
-      //     err => console.log(err)
-      //   )
+          },
+          err => console.log(err)
+        )
 
     }
   }
 
+  // updateGarden(values:Garden){
+
+  //   this.gardenService.onUpdateGarden(values).subscribe(
+  //     res => {
+  //       console.log( "Update Garden Received  " + res);
+  //       this.router.navigateByUrl('/gardenlist')
+  //     },
+  //     err => console.log(err)
+  //   )
+  // }
+
   updateGarden(values:Garden){
 
-    // this.gardenService.onUpdateOwner(values).subscribe(
-    //   res => {
-    //     console.log(res);
-    //     this.router.navigateByUrl('/ownerlist')
-    //   },
-    //   err => console.log(err)
-    // )
+    this.gardenService.onUpdateGarden(values).subscribe((data) => {
+      this.router.navigate(['/gardenlist'])
+    });
+
   }
 
 

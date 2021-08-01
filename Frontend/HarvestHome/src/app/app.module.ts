@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { GardenModule } from './garden/garden.module';
 import { RouterModule } from '@angular/router';
+import { MonitorModule } from './monitor/monitor.module';
 
 
 import { HomeComponent } from './home/home.component';
@@ -13,7 +14,7 @@ import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultModule } from './Informationlayouts/default/default.module';
-//import { DashboardComponent } from './Informationmodules/dashboard/dashboard.component';
+
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -32,9 +33,11 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     FormsModule,
     GardenModule,
+    MonitorModule,
     GraphQLModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

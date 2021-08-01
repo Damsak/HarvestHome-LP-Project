@@ -6,6 +6,7 @@ import {CreateGardenComponent} from './create-garden/create-garden.component';
 import {EditGardenComponent} from './edit-garden/edit-garden.component';
 import {ListGardenComponent} from './list-garden/list-garden.component';
 import { HomeGardenComponent } from "./home-garden/home-garden.component";
+import { CropsGardenComponent } from './crops-garden/crops-garden.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
     { path:'gardenlist' , component:ListGardenComponent},
     { path:'gardencreate', component:CreateGardenComponent},
     { path:'gardenedit/:id' , component:EditGardenComponent}, 
+    { path:'gardencrops', component: CropsGardenComponent}
 ]
 
 @NgModule({
