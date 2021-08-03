@@ -23,7 +23,6 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [
     AppComponent,
     HomeComponent,
-
   ],
   imports: [
 

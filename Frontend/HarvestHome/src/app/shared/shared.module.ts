@@ -30,7 +30,8 @@ import { PieComponent } from './widgets/pie/pie.component';
     FlexLayoutModule,
     MatListModule,
     RouterModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    
 
   ],
   exports: [

@@ -1,0 +1,41 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @key(fields: String!) on OBJECT | INTERFACE
+
+directive @extends on OBJECT | INTERFACE
+
+directive @external on OBJECT | FIELD_DEFINITION
+
+directive @requires(fields: String!) on FIELD_DEFINITION
+
+directive @provides(fields: String!) on FIELD_DEFINITION
+
+type Monitor {
+  id: ID!
+  name: String!
+  profileId: String!
+  GardenId: String!
+  soilMoisture: Float!
+  airTemperature: Float!
+  fertilizerLevels: Float!
+}
+
+type Query {
+  getAllMonitorRecords: [Monitor!]!
+  MonitorRecord(id: String!): Monitor!
+}
+
+type Mutation {
+  createMonitorRecord(monitorInput: MonitorCreateDTO!): Monitor!
+}
+
+input MonitorCreateDTO {
+  name: String!
+  profileId: String!
+  GardenId: String!
+  soilMoisture: Float!
+  airTemperature: Float!
+  fertilizerLevels: Float!
+}

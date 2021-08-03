@@ -77,7 +77,7 @@ export class EditGardenComponent implements OnInit {
     //     },
     // })
 
-    this.gardenService.onGetGarden(this.paramId) .subscribe((data) => {
+    this.gardenService.onGetGarden(this.paramId).subscribe((data) => {
           
             this.id = data.data.garden.id;
             this.owner = data.data.garden.owner;

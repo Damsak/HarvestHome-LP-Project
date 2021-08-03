@@ -13,6 +13,7 @@ import { GardenService } from '../garden.service';
 export class ListGardenComponent implements OnInit {
 
   allGardens:Garden[] = [];
+  Garden:any;
 
   constructor(private router: Router,private apollo:Apollo, private gardenService:GardenService) { }
 
@@ -25,6 +26,21 @@ export class ListGardenComponent implements OnInit {
 
   editGarden(id:number){
     this.router.navigate(['/gardenedit', id])
+  }
+
+  onDelete(id:number){
+
+    this.gardenService.onDelete(id.toString()).subscribe((data) => {
+          
+      this.Garden = data;
+
+      console.log(JSON.stringify(this.Garden))
+
+    },
+    err => console.log(err)
+  );
+    //reload page after delete
+    window.location.reload();
   }
 
 }

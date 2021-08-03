@@ -10,6 +10,8 @@ import { Garden } from './entity/garden.entity';
 export class GardenResolver {
 
     gardenToBeUpdate: GardenUpdateDTO;
+    results:any;
+    deletedObject:any;
 
     constructor(private gardenService:GardenService) {}
 
@@ -44,11 +46,22 @@ export class GardenResolver {
 
     @Mutation(()=> Garden, {name:"deleteGarden"})
     async delete(@Args("id") id: string){
-        return await this.gardenService.delete(id);
+
+        this.deletedObject = this.gardenService.findOne(id);
+
+        this.results =  await this.gardenService.delete(id);
+        console.log("Returned Val " + JSON.stringify(this.results))
+
+       // {"raw":[],"affected":1}
+
+       // if(this.results.affected == 1) {
+            return this.deletedObject;
+        //}
+
+        //console.log("ERROR IN DELETE GARDEN");
+        
     }
 
-
-    
 
     @ResolveField()
     profile(@Parent() garden:Garden) {

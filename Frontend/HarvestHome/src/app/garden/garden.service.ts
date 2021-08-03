@@ -39,6 +39,18 @@ mutation updateGarden($gardenUpdateInput: GardenUpdateDTO!, $id: String!) {
 }
 `;
 
+
+const Delete_Garden = gql`
+mutation deleteGarden($id: String!) {
+  deleteGarden(id: $id) {
+    owner
+    crops
+    location
+    profileId   
+  }
+}
+`;
+
 const FindOne_Garden = gql`
 query ($id: String!){
 garden (id:$id) {
@@ -91,6 +103,20 @@ onGet(): Observable<any> {
 
 }
 
+
+onDelete(id:string):Observable<any> {
+
+  console.log("Mutate received " + id)
+  return this.apollo.mutate({
+    mutation: Delete_Garden,
+    variables: {
+      "id": id
+    }
+})
+
+  // .subscribe(() => this.status = 'Delete successful');
+
+}
 
 // onConfig() {
 //     return this.http.get(this.ROOT_URL);

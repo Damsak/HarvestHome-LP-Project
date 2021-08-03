@@ -1,7 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-// import { Project } from 'src/project/entities/project.entity';
-// import { ProjectService } from 'src/project/project.service';
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { GardenCreateDTO } from './dto/create-garden.input';
 import { GardenUpdateDTO } from './dto/update-garden.input';

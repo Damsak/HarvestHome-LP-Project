@@ -37,44 +37,139 @@
 
 
 
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <div><h1>Identified Issues</h1></div>
+        <owl-carousel-o [options]="customOptions">
+
+          <ng-template carouselSlide>
+            <div class="card" style="width: 18rem; padding: 15px;">
+              <img  width="200px" height="160px"  src="../../../assets/images/tomato.jpg" class="rounded-pill">
+              <div class="card-body">
+                <div class="alert  alert-danger alert-dismissable fade show" role="alert">
+                  <h2>Severe Issue!</h2>
+                  <p>Attention NEEDED!!
+                  <a href="#" class="alert-link"> Click </a>
+                  </p>
+                  <a href="/gardenlist" class="btn btn-success">Resolve</a>
+              </div>
+              </div>
+            </div>
+          </ng-template>  
+      
+          <ng-template carouselSlide>
+            <div class="card" style="width: 18rem; padding: 15px;">
+              <img  width="200px" height="160px"  src="../../../assets//images/chillie.jpg" class="rounded-pill">
+              <div class="card-body">
+                <div class="alert  alert-success alert-dismissable fade show" role="alert">
+                  <h2>Normal Issue!</h2>
+                  <p>Check within 3 days!
+                  <a href="#" class="alert-link"> Click </a>
+                  </p>
+                  <a href="/gardenlist" class="btn btn-success">Resolve</a>
+              </div>
+              </div>
+            </div>
+          </ng-template>  
+      
+          <ng-template carouselSlide>
+            <div class="card" style="width: 18rem; padding: 15px;">
+              <img  width="200px" height="160px"  src="../../../assets/images/banana.jpg" class="rounded-pill">
+              <div class="card-body">
+                <div class="alert  alert-danger alert-dismissable fade show" role="alert">
+                  <h2>Severe Issue!</h2>
+                  <p>Attention NEEDED!!
+                  <a href="#" class="alert-link"> Click </a>
+                  </p>
+                  <a href="/gardenlist" class="btn btn-success">Resolve</a>
+              </div>
+              </div>
+            </div>
+          </ng-template>  
+      
+        </owl-carousel-o>
+        <div>Some tags after</div>
+      </div>
+      <div class="col-4">
+
+        <!-- soil moisture levels, air temperature, soil temperature, fertilizer levels, and ambient light levels -->
+
+
+
+        <div class="container2 overflow-hidden mt-5" id="status">
+
+          
+          <div class="row gy-5" style="color: rgb(78, 56, 56);
+          padding:  25px;
+          border: 5px solid #555555 ;
+          border-radius: 70px;">
+          <div class="col-6">
+            <div class="p-3 border bg-light">
+              <div>
+                <h5 class="card-title">Total Records</h5>
+                <h1>{{allSensorRecords.length}}</h1>
+                <!-- <p class="card-text">Some quick example text's content.</p> -->
+                <a href="/gardenlist" class="btn btn-primary">List My Gardens</a>
+              </div>
+            </div>
+          </div>        
+            <div class="col-6">
+              <div class="p-3 border bg-light">
+                <div>
+                  <h5 class="card-title">soil moisture levels</h5>
+                  <h1>{{finalaverageSoilMoisture}} %</h1>
+                  <a href="/gardenlist" class="btn btn-primary">List My Gardens</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-3 border bg-light">
+                <div>
+                  <h5 class="card-title">air temperature</h5>
+                  <h1>{{finalaverageAirTemperature}} %</h1>
+                  <!-- <p class="card-text">Some quick example text's content.</p> -->
+                  <a href="/gardenlist" class="btn btn-primary">List My Gardens</a>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-6">
+              <div class="p-3 border bg-light">
+                <div>
+                  <h5 class="card-title">fertilizer levels</h5>
+                  <h1>{{finalaverageFertilizerLevels}} %</h1>
+                  <!-- <p class="card-text">Some quick example text's content.</p> -->
+                  <a href="/gardenlist" class="btn btn-primary">List My Gardens</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row gy-5">
+            <div class="col-6">
+              <div class="p-3 border bg-light">Custom column padding</div>
+            </div>
+            <div class="col-6">
+              <div class="p-3 border bg-light">Custom column padding</div>
+            </div>
+          </div>
+
+          
+        </div>
+
+
+        
+      </div>
+    </div>
+
+
+
 <div class="container text-center">
 
+ 
 
 
-  <div>Some tags before</div>
-  <owl-carousel-o [options]="customOptions">
-    <ng-template carouselSlide>
-      <div class="card" style="width: 18rem;">
-        <img  width="200px" height="160px"  src="/assets/dashboard.png" class="rounded-pill">
-        <div class="card-body">
-          <h5 class="card-title">Cute Horse</h5>
-          <p class="card-text">Some quick example text's content.</p>
-          <a href="/gardenlist" class="btn btn-primary">List My Gardens</a>
-        </div>
-      </div>
-    </ng-template>  
-    <ng-template carouselSlide>
-      <div class="card" style="width: 18rem;">
-        <img  width="200px" height="160px"  src="/assets/dashboard.png" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">Cute Horse</h5>
-          <p class="card-text">Some quick example text's content.</p>
-          <a href="/gardenlist" class="btn btn-primary">List My Gardens</a>
-        </div>
-      </div>
-    </ng-template>  
-    <ng-template carouselSlide>
-      <div class="card" style="width: 18rem;">
-        <img  width="200px" height="160px"  src="/assets/dashboard.png" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">Cute Horse</h5>
-          <p class="card-text">Some quick example text's content.</p>
-          <a href="/gardenlist" class="btn btn-primary">List My Gardens</a>
-        </div>
-      </div>
-    </ng-template>  
-  </owl-carousel-o>
-  <div>Some tags after</div>
+
 
 
 </div>
