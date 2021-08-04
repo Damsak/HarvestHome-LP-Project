@@ -1,0 +1,49 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @key(fields: String!) on OBJECT | INTERFACE
+
+directive @extends on OBJECT | INTERFACE
+
+directive @external on OBJECT | FIELD_DEFINITION
+
+directive @requires(fields: String!) on FIELD_DEFINITION
+
+directive @provides(fields: String!) on FIELD_DEFINITION
+
+type Crop {
+  id: ID!
+  crop: String!
+  GardenId: String!
+  soilMoisture: Float!
+  airTemperature: Float!
+  fertilizerLevels: Float!
+}
+
+type Query {
+  getAllCrops: [Crop!]!
+  crop(id: String!): Crop!
+}
+
+type Mutation {
+  createCrop(cropInput: CropCreateDTO!): Crop!
+  updateCrop(cropUpdateInput: CropUpdateDTO!, id: String!): Crop!
+  deleteCrop(id: String!): Crop!
+}
+
+input CropCreateDTO {
+  crop: String!
+  GardenId: String!
+  soilMoisture: Float!
+  airTemperature: Float!
+  fertilizerLevels: Float!
+}
+
+input CropUpdateDTO {
+  crop: String!
+  GardenId: String!
+  soilMoisture: Float!
+  airTemperature: Float!
+  fertilizerLevels: Float!
+}

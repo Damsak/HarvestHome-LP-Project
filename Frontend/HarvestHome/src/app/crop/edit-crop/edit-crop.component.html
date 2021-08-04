@@ -1,0 +1,52 @@
+<div class="card">
+    <div class="card-header text-center"style="width: 50%; margin: 0 auto; font-family: 'Oswald'">
+        <h1>Edit Crop</h1>
+    </div>
+    <div class="col-sm-3 sidenav" style="width: 200px;">
+        <button type="button" class="btn btn-secondary" (click)="navigatetoCropList()" style="width: 200px; margin-left: 10px;"> Go back </button> 
+    </div>
+    <div class="card-body"  style="width:1000px; margin:0 auto; border-radius: 5; border: 2px solid #161615; border-radius: 10px; margin-bottom: 20px;">
+
+        <form #cropForm = "ngForm" (ngSubmit) = "updateCrop(cropForm.value)">
+
+            <fieldset disabled>
+            <div class="form-group">
+                <label for="disabledTextInput">ID</label>
+                <input type="text"  name="id" class="form-control" id="id" [ngModel] = "id">
+            </div>
+            </fieldset>
+            <br>
+            <div class="form-group">
+                <label for="crop">Crop</label>
+                <input type="text" class="form-control" name="crop" [ngModel] = "crop">
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="GardenId">Garden ID</label>
+              <input type="text"  name="GardenId" class="form-control" id="GardenId" [ngModel] = "GardenId">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="soilMoisture">Soil Moisture</label>
+                <input type="number" class="form-control" name="soilMoisture" [ngModel] = "soilMoisture">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="airTemperature">Air Temperature</label>
+                <input type="number" class="form-control" name="airTemperature" [ngModel] = "airTemperature">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="fertilizerLevels">Fertilizer Levels</label>
+                <input type="number" class="form-control" name="fertilizerLevels" [ngModel] = "fertilizerLevels">
+            </div>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary">Update Crop</button>
+        </form>
+
+
+
+
+  </div>
+</div>

@@ -1,0 +1,44 @@
+
+
+    <div class="card">
+
+        <div class="col-sm-3 sidenav mt-5" style="width: 200px;">
+            <button type="button" routerLink = "/homegarden" class="btn btn-secondary" style="width: 150px; margin-left: 10px;"> Go back </button> 
+          </div>
+    
+    <div class="card-body" style="width:80%; margin:0 auto;">
+    
+          <div class="table-responsive" style="border-radius: 10px;">
+   
+                <table class="table">
+                <thead>
+                <tr>
+                <th scope="col">Crop</th>
+                <th scope="col">GardenId</th>
+                <th scope="col">soilMoisture</th>
+                <th scope="col">airTemperature</th>
+                <th scope="col">fertilizerLevels</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor = "let crop of allCrops">
+                <td>{{crop.crop}}</td>
+                <td>{{crop.GardenId}}</td>
+                <td>{{crop.soilMoisture}}</td>
+                <td>{{crop.airTemperature}}</td>
+                <td>{{crop.fertilizerLevels}}</td>
+                <td><button class="btn btn-primary" (click)="editCrop(crop.id)">
+                Edit
+                </button>
+                <td><button class="btn btn-danger" (click)="onDelete(crop.id)">
+                Delete
+                </button>               
+                </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>    
+    </div>

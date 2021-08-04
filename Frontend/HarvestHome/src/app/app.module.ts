@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { GardenModule } from './garden/garden.module';
 import { RouterModule } from '@angular/router';
 import { MonitorModule } from './monitor/monitor.module';
+import { CropModule } from './crop/crop.module';
 
 
 import { HomeComponent } from './home/home.component';
@@ -33,6 +34,7 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     GardenModule,
     MonitorModule,
+    CropModule,
     GraphQLModule,
     HttpClientModule,
     BrowserAnimationsModule,

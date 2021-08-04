@@ -11,7 +11,8 @@ import { GraphQLGatewayModule } from '@nestjs/graphql';
       serviceList:[
         {name:"gardens", url:"http://localhost:3010/graphql"},
         {name:"profiles", url:"http://localhost:3011/graphql"},
-        {name:"monitors", url:"http://localhost:3012/graphql"}
+        {name:"monitors", url:"http://localhost:3012/graphql"},
+        {name:"crops", url:"http://localhost:3013/graphql"}
     ]
     }
   })],
