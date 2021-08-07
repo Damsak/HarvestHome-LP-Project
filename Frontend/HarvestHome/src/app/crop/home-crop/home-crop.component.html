@@ -5,7 +5,7 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="page-caption">
                     <h1 class="page-title">My Home Garden</h1>
-                      <a href="/homegarden" class="btn btn-primary" style="color: white;">Go Back!</a>
+                      <a (click)="navigateBack()" class="btn btn-primary" style="color: white;">Go Back!</a>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
                           <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" style="height: 220px;">
                             <div class="my-3 p-3">
                               <h2 class="display-5">List All Crops</h2>
-                              <a href="/croplist" class="btn btn-info">List Crops!</a>
+                              <a (click)="navigatetoCropList()" class="btn btn-info">List Crops!</a>
                             </div>
                             <div class="bg-dark shadow-sm mx-auto" style="width: 80%;  border-radius: 21px 21px 0 0;"></div>
                           </div>
@@ -33,7 +33,7 @@
                           <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden" style="height: 220px;">
                             <div class="my-3 py-3">
                               <h2 class="display-5" style="color: white;">Add a new Crop</h2>
-                              <a href="/cropcreate" class="btn btn-outline-info" style="color: white;">Create Crops!</a>
+                              <a (click)="navigatetoCropCreate()" class="btn btn-outline-info" style="color: white;">Create Crops!</a>
                             </div>
                             <div class="bg-light shadow-sm mx-auto" style="width: 80%;  border-radius: 21px 21px 0 0;"></div>
                           </div>
@@ -58,4 +58,5 @@
         </div>
         </div>
         </div>
+        
      

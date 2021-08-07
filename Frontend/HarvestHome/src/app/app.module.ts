@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -18,6 +18,8 @@ import { DefaultModule } from './Informationlayouts/default/default.module';
 
 
 import { AppRoutingModule } from './app-routing.module';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { initializeKeycloak } from './auth/app.init'
 
 
 @NgModule({
@@ -26,7 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     HomeComponent,
   ],
   imports: [
-
+    RouterModule,
     AppRoutingModule,
     DefaultModule,
     CommonModule,
@@ -38,9 +40,18 @@ import { AppRoutingModule } from './app-routing.module';
     GraphQLModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    
+    KeycloakAngularModule
   ],
-  providers: [],
+  providers: [{
+    provide: APP_INITIALIZER,
+    useFactory: initializeKeycloak,
+    multi: true,
+    deps: [KeycloakService],
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+//VALUE - Nh3M64c-VN__qPp-0~~qrCKrOgxP9y3aXW
+//SECRET ID - b170b5ff-11f7-4868-8374-f69c5ae479fb

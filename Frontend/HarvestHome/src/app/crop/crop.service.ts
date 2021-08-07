@@ -151,7 +151,7 @@ onGetGarden(id:string) : Observable<any> {
   onUpdateCrop(crop:Crop): Observable<any> {
 
   console.log("Crop update service " + JSON.stringify(crop))
- // window.location.reload();
+ window.location.reload();
   return this.apollo.mutate({
       mutation: Put_Crop,
       variables:  {  

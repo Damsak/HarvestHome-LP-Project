@@ -24,7 +24,7 @@
                   <p>High Issue!!
                   <!-- <a href="#" class="alert-link"> Click </a> -->
                   </p>
-                  <a href="/" class="btn btn-success">Resolve</a>
+                  <a class="btn btn-success">Resolve</a>
               </div>
               <div class="alert  alert-success alert-dismissable fade show" role="alert" *ngIf = "slide.severity === 'Medium'">
                 <h2>{{slide.crop}}</h2>
@@ -33,7 +33,7 @@
                 <p>Medium Issue!!
                 <!-- <a href="#" class="alert-link"> Click </a> -->
                 </p>
-                <a href="/" class="btn btn-success">Resolve</a>
+                <a class="btn btn-success">Resolve</a>
             </div>
             <div class="alert  alert-primary alert-dismissable fade show" role="alert" *ngIf = "slide.severity === 'Low'">
               <h2>{{slide.crop}}</h2>
@@ -41,7 +41,7 @@
               <p>Low Issue!!
               <!-- <a href="#" class="alert-link"> Click </a> -->
               </p>
-              <a href="/" class="btn btn-success">Resolve</a>
+              <a class="btn btn-success">Resolve</a>
           </div>
               </div>
             </div>
@@ -64,7 +64,7 @@
               <div>
                 <h5 class="card-title">Total Records</h5>
                 <h1>{{totalSensorRecords}}</h1>
-                <a href="/gardenlist" class="btn btn-primary">List My Gardens</a>
+                <a class="btn btn-primary">Sensor Records</a>
               </div>
             </div>
           </div>        
@@ -73,7 +73,7 @@
                 <div>
                   <h5 class="card-title">soil moisture levels</h5>
                   <h1>{{finalaverageSoilMoisture}} %</h1>
-                  <a href="/gardenlist" class="btn btn-primary">List My Gardens</a>
+                  <a class="btn btn-primary">Soil Moisture Levels</a>
                 </div>
               </div>
             </div>
@@ -82,7 +82,7 @@
                 <div>
                   <h5 class="card-title">air temperature</h5>
                   <h1>{{finalaverageAirTemperature}} %</h1>
-                  <a href="/gardenlist" class="btn btn-primary">List My Gardens</a>
+                  <a class="btn btn-primary">Air Temperature</a>
                 </div>
               </div>
             </div>

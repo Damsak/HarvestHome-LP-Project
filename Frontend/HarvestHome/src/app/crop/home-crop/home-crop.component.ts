@@ -13,5 +13,17 @@ export class HomeCropComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  navigateBack() {
+    this.router.navigate(['/homegarden'])
+  }
+
+  navigatetoCropCreate() {
+    this.router.navigate(['/cropcreate'])
+  }
+
+  navigatetoCropList() {
+    this.router.navigate(['/croplist'])
+  }
+
 
 }

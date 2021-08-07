@@ -16,8 +16,8 @@ export class CreateGardenComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigatetoOwnerList() {
-    this.router.navigate(['/gardenlist'])
+  navigateBack() {
+    this.router.navigate(['/homegarden'])
   }
 
   // getGardenValues(values:any){

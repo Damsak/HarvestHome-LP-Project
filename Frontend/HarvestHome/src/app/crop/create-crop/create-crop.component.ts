@@ -16,8 +16,8 @@ export class CreateCropComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigatetoCropList() {
-    this.router.navigate(['/croplist'])
+  navigateBack() {
+    this.router.navigate(['/homegarden'])
   }
 
 

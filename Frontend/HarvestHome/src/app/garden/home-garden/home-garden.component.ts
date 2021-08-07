@@ -13,5 +13,26 @@ export class HomeGardenComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  navigateBack() {
+    this.router.navigate(['/'])
+  }
+
+  navigatetoCrops() {
+    this.router.navigate(['/homecrop'])
+  }
+
+  navigatetoGradenCreate() {
+    this.router.navigate(['/gardencreate'])
+  }
+
+  navigatetoGradenList() {
+    this.router.navigate(['/gardenlist'])
+  }
+
+  navigatetoGardenCrops() {
+    this.router.navigate(['/gardencrops'])
+  }
+
+
 
 }

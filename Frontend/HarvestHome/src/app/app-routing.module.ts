@@ -5,6 +5,7 @@ import { DashboardComponent } from './Informationmodules/dashboard/dashboard.com
 import { ProfitComponent } from './Informationmodules/profit/profit.component';
 
 import { HomeComponent } from './home/home.component';
+import { AuthGuard } from './auth/keycloak.guard';
 
 const routes: Routes = [{
   path: '',
@@ -15,11 +16,11 @@ const routes: Routes = [{
   }, 
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent , canActivate:[AuthGuard]
   },
   {
     path: 'profit',
-    component: ProfitComponent
+    component: ProfitComponent , canActivate:[AuthGuard]
   },
 ]
 }];

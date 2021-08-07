@@ -86,7 +86,7 @@ export class EditCropComponent implements OnInit {
     });
 
     
-    window.location.reload();
+    //window.location.reload();
   }
 
 
