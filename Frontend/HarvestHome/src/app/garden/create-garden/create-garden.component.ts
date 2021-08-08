@@ -35,7 +35,9 @@ export class CreateGardenComponent implements OnInit {
     console.log(values);
 
     this.gardenService.onAdd(values).subscribe((data) => {
-      this.router.navigate(['/gardenlist'])
+      this.router.navigate(['/gardenlist']).then(() => {
+        window.location.reload();
+      });
     });
 
     

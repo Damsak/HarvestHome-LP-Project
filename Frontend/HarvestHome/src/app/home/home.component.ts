@@ -14,4 +14,12 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  navigatetoMonitor() {
+    this.router.navigate(['/monitorgarden'])
+    
+    // .then(() => {
+    //   window.location.reload();
+    // });
+  }
+
 }

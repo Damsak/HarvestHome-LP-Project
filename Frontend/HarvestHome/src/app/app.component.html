@@ -5,7 +5,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav mr-4">
           <li class="nav-item active">
             <a class="nav-link" routerLink = "/">Home <span class="sr-only"></span></a>
           </li>
@@ -16,14 +16,22 @@
             <a class="nav-link" >Profiles</a>
           </li>
           <!-- <li class="nav-item">
-            <a class="nav-link">{{fullName}}</a>
-          </li> -->
-            
+            <p style = "color:white; margin-top: 8px;"> Welcome {{fullname}}</p>
+          </li>
+          <button class="btn btn-primary btn" style=" margin-left: 800px;" (click) = "logout()" > Logout </button>      -->
         </ul>
         <!-- <div class="container text-center"  >
           <h1 class="display-4" style="color:rgb(239, 241, 248); font-family: 'Brush Script MT' ">Say No to Chemicals!</h1>      
         </div> -->
+        
+        <!-- <h2 style = "color:white"> Welcome {{fullname}}</h2> -->
       </div>
+
+      <div class="message mr-4" *ngIf=fullName style="color: beige;">Welcome : {{fullName}}</div>
+      <ul class="navbar-nav mr-4" *ngIf=fullName>
+        <a class="nav-link"  (click) = "logout()">Logout</a>
+      </ul>
+
     </nav>
   
     <div class="footer">

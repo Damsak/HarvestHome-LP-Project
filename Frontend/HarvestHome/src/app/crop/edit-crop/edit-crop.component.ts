@@ -68,25 +68,13 @@ export class EditCropComponent implements OnInit {
     }
   }
 
-  // updateGarden(values:Garden){
-
-  //   this.gardenService.onUpdateGarden(values).subscribe(
-  //     res => {
-  //       console.log( "Update Garden Received  " + res);
-  //       this.router.navigateByUrl('/gardenlist')
-  //     },
-  //     err => console.log(err)
-  //   )
-  // }
-
   updateCrop(values:Crop){
 
     this.cropService.onUpdateCrop(values).subscribe((data) => {
-      this.router.navigate(['/croplist'])
+      this.router.navigate(['/croplist']).then(() => {
+        window.location.reload();
+      });
     });
-
-    
-    //window.location.reload();
   }
 
 

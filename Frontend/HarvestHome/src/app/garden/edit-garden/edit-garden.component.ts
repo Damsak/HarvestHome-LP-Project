@@ -106,7 +106,9 @@ export class EditGardenComponent implements OnInit {
   updateGarden(values:Garden){
 
     this.gardenService.onUpdateGarden(values).subscribe((data) => {
-      this.router.navigate(['/gardenlist'])
+      this.router.navigate(['/gardenlist']).then(() => {
+        window.location.reload();
+      });
     });
 
   }

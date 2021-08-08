@@ -24,9 +24,10 @@ export class CreateCropComponent implements OnInit {
   getCropValues(values:any){
 
     this.cropService.onAdd(values).subscribe((data) => {
-      this.router.navigate(['/croplist'])
+      this.router.navigate(['/croplist']).then(() => {
+        window.location.reload();
+      });
     });
-
     
   }
 

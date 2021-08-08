@@ -15,13 +15,17 @@ export class ListCropComponent implements OnInit {
   allCrops:Crop[] = [];
   Crop:any;
 
-  constructor(private router: Router,private apollo:Apollo, private cropService:CropService) { }
+  constructor(private router: Router,private apollo:Apollo, private cropService:CropService) { 
+    
+    this.cropService.onGet().subscribe((data) => {
+      this.allCrops = data.data.getAllCrops;
+    });
+
+
+  }
 
   ngOnInit(): void {
 
-      this.cropService.onGet().subscribe((data) => {
-      this.allCrops = data.data.getAllCrops;
-    });
   }
 
   editCrop(id:number){

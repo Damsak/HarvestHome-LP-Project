@@ -247,7 +247,7 @@ onGetGarden(id:string) : Observable<any> {
 
 
 onUpdateGarden(garden:Garden): Observable<any> {
-  window.location.reload();
+ // window.location.reload();
   return this.apollo.mutate({
       mutation: Put_Garden,
       variables: {  

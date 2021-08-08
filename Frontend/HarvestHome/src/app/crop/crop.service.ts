@@ -118,9 +118,6 @@ onDelete(id:string):Observable<any> {
 
 
 onAdd(crop:Crop): Observable<any>{
-
-  console.log("ONADD " + JSON.stringify(crop))
-
   return this.apollo.mutate({
       mutation: Post_Crop,
       variables: {    
@@ -150,8 +147,8 @@ onGetGarden(id:string) : Observable<any> {
 
   onUpdateCrop(crop:Crop): Observable<any> {
 
-  console.log("Crop update service " + JSON.stringify(crop))
- window.location.reload();
+ // console.log("Crop update service " + JSON.stringify(crop))
+ //window.location.reload();
   return this.apollo.mutate({
       mutation: Put_Crop,
       variables:  {  

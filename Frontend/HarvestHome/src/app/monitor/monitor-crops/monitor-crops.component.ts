@@ -22,15 +22,11 @@ export class MonitorCropsComponent implements OnInit {
   finalaverageAirTemperature:number = 0;
   finalaverageFertilizerLevels:number = 0;
   allCrops:Crop[] = [];
-
   cropInfo:any = [];
  
 
-
-
   ngOnInit(): void {
 
-    
 
 
     // this.monitorService.onGet().subscribe((data) => {
@@ -43,6 +39,7 @@ export class MonitorCropsComponent implements OnInit {
 
     //get the necessary factors from the service and set average levels
     this.monitorService.onGetAverageFactors().subscribe((data) => {
+
     this.allSensorRecords = data.data.getAllMonitorRecords;
 
     this.totalSensorRecords = Object.keys(this.allSensorRecords).length;
@@ -57,15 +54,14 @@ export class MonitorCropsComponent implements OnInit {
     this.finalaverageSoilMoisture = this.finalaverageSoilMoisture/this.totalSensorRecords;
     this.finalaverageAirTemperature =   this.finalaverageAirTemperature/this.totalSensorRecords; 
     this.finalaverageFertilizerLevels =  this.finalaverageFertilizerLevels/this.totalSensorRecords;  
-});  
+  
+})  
 
 
 
 
 //loop through the available crops to indentify the ones which need to be changed 
     this.cropService.onGet().subscribe((data) => {
-
-
 
       this.allCrops = data.data.getAllCrops;
       // console.log("all" +  JSON.stringify(this.allCrops))
@@ -94,7 +90,7 @@ export class MonitorCropsComponent implements OnInit {
           count++;
           //needed soil moisture is higher than the current average soil moisture
           singleCropData.soilMoistureOffset = (this.allCrops[j].soilMoisture - this.finalaverageSoilMoisture);
-          // console.log(" Soil Moisture, crop need " + this.allCrops[j].soilMoisture + " Average  " + this.finalaverageSoilMoisture)
+          console.log(" Soil Moisture, crop need " + this.allCrops[j].soilMoisture + " Average  " + this.finalaverageSoilMoisture)
         }
 
 
@@ -102,13 +98,13 @@ export class MonitorCropsComponent implements OnInit {
           count++;
         //needed air temperature is higher than the current average air temperature
         singleCropData.airTemperatureOffset = (this.allCrops[j].airTemperature - this.finalaverageAirTemperature);
-          // console.log("Air Temperature,crop need " + this.allCrops[j].airTemperature + " Average  " + this.finalaverageAirTemperature)
+        console.log("Air Temperature,crop need " + this.allCrops[j].airTemperature + " Average  " + this.finalaverageAirTemperature)
         }
 
         if(this.allCrops[j].fertilizerLevels >  this.finalaverageFertilizerLevels) {
           count++;
           singleCropData.fertilizerLevelsOffset = (this.allCrops[j].fertilizerLevels - this.finalaverageFertilizerLevels);
-          // console.log("Fertilizer levels,crop need " + this.allCrops[j].fertilizerLevels + " Average  " + this.finalaverageFertilizerLevels)
+          console.log("Fertilizer levels,crop need " + this.allCrops[j].fertilizerLevels + " Average  " + this.finalaverageFertilizerLevels)
         }
 
 

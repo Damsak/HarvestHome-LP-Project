@@ -15,7 +15,7 @@ const routes: Routes = [
     { path:'croplist' , component:ListCropComponent, canActivate:[AuthGuard]},
     { path:'cropcreate', component:CreateCropComponent, canActivate:[AuthGuard]},
     { path:'cropedit/:id' , component:EditCropComponent, canActivate:[AuthGuard]}, 
-    // { path:'gardencrops', component: CropsGardenComponent}
+    
 ]
 
 @NgModule({
