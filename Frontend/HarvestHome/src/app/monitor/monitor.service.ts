@@ -23,6 +23,17 @@ const Get_AverageFactors = gql`query {
   }
  }`;
 
+const Get_Maintain = gql`query {
+  getAllMaintainRecords {
+    id
+  	plan
+  	removeWeeds
+  	activity
+  	waterlevel
+  	requiredTimeInMins
+  }
+}`;
+
 
 
 
@@ -41,9 +52,14 @@ constructor(private http:HttpClient,private apollo:Apollo,private router: Router
 
 
 onGet(): Observable<any> {
-
   return this.apollo.query<any>({
     query: Get_Monitors
+  })
+}
+
+onGetMaintain(): Observable<any> {
+  return this.apollo.query<any>({
+    query: Get_Maintain
   })
 }
 

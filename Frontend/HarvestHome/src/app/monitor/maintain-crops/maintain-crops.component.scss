@@ -1,22 +1,31 @@
-.container {  
-    width: 100%;
-    background-color: rgb(245, 239, 237);
-}
+// html {
+//     font-size: 14px;
+//   }
+//   @media (min-width: 768px) {
+//     html {
+//       font-size: 16px;
+//     }
+//   }
 
-button {
-	border: none;
-	outline: none;
-	padding: 10px 20px;
-	border-radius: 50px;
-	color: #333;
-	background: #fff;
-	margin-bottom: 50px;
-	box-shadow: 0 3px 20px 0 #0000003b;
-}
-button:hover{
-	cursor: pointer;
-}
+  
+// .container {
+//     max-width: 960px;
+//   }
+  
+//     .pricing-header {
+//         max-width: 700px;
+//     }
+    
+//     .card-deck .card {
+//         min-width: 220px;
+//     }
+    
+//     .border-top { border-top: 1px solid #e5e5e5; }
+//     .border-bottom { border-bottom: 1px solid #e5e5e5; }
+    
+//     .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
 
+    /*  Helper Styles */
 body {
     font-family: Varela Round;
     background: #f1f1f1;
@@ -51,6 +60,7 @@ body {
   .card-action:hover {
       color: #fff;
       background: #E26D5C;
+      // -webkit-animation: pulse 1.5s infinite;
   }
 
   .card-heading {
@@ -61,9 +71,9 @@ body {
   }
 
   .card-header {
-    font-size: 25px;
+    font-size: 40px;
     font-weight: bold;
-    background: rgb(252, 252, 252);
+    background: #fff;
   }
 
   .card-text {
@@ -96,4 +106,3 @@ body {
             border: 5px solid #5fb154 ;
             border-radius: 20px;
   }
-

@@ -22,13 +22,25 @@ type Monitor {
   fertilizerLevels: Float!
 }
 
+type Maintain {
+  id: ID!
+  plan: String!
+  removeWeeds: String!
+  activity: String!
+  waterlevel: Float!
+  requiredTimeInMins: Float!
+}
+
 type Query {
   getAllMonitorRecords: [Monitor!]!
   MonitorRecord(id: String!): Monitor!
+  getAllMaintainRecords: [Maintain!]!
+  MaintainRecord(id: String!): Maintain!
 }
 
 type Mutation {
   createMonitorRecord(monitorInput: MonitorCreateDTO!): Monitor!
+  createMaintainRecord(maintainInput: MaintainCreateDTO!): Maintain!
 }
 
 input MonitorCreateDTO {
@@ -38,4 +50,12 @@ input MonitorCreateDTO {
   soilMoisture: Float!
   airTemperature: Float!
   fertilizerLevels: Float!
+}
+
+input MaintainCreateDTO {
+  plan: String!
+  removeWeeds: String!
+  activity: String!
+  waterlevel: Float!
+  requiredTimeInMins: Float!
 }

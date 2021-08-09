@@ -28,11 +28,11 @@ import { initializeKeycloak } from './auth/app.init'
     HomeComponent,
   ],
   imports: [
+    CommonModule,
+    BrowserModule,
     RouterModule,
     AppRoutingModule,
     DefaultModule,
-    CommonModule,
-    BrowserModule,
     FormsModule,
     GardenModule,
     MonitorModule,

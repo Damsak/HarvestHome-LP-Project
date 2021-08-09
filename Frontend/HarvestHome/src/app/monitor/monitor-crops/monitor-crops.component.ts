@@ -3,6 +3,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CropService } from 'src/app/crop/crop.service';
 import { Crop } from 'src/app/crop/models/crop';
 import { MonitorService } from '../monitor.service'
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-monitor-crops',
@@ -13,7 +14,7 @@ export class MonitorCropsComponent implements OnInit {
 
 
 
-  constructor(private monitorService:MonitorService, private cropService:CropService) { }
+  constructor(private router: Router,private monitorService:MonitorService, private cropService:CropService) { }
 
   allSensorRecords:any;
   totalSensorRecords:number=0;
@@ -23,19 +24,10 @@ export class MonitorCropsComponent implements OnInit {
   finalaverageFertilizerLevels:number = 0;
   allCrops:Crop[] = [];
   cropInfo:any = [];
+  loaded:boolean = false;
  
 
   ngOnInit(): void {
-
-
-
-    // this.monitorService.onGet().subscribe((data) => {
-
-
-    //   this.allSensorRecords = data.data.getAllMonitorRecords;
-    //   console.log("Came to " + JSON.stringify(this.allSensorRecords));
-    // });  
-
 
     //get the necessary factors from the service and set average levels
     this.monitorService.onGetAverageFactors().subscribe((data) => {
@@ -50,21 +42,20 @@ export class MonitorCropsComponent implements OnInit {
         this.finalaverageAirTemperature =  obj.airTemperature + this.finalaverageAirTemperature; 
         this.finalaverageFertilizerLevels =  obj.fertilizerLevels + this.finalaverageFertilizerLevels;      
     }
-
     this.finalaverageSoilMoisture = this.finalaverageSoilMoisture/this.totalSensorRecords;
     this.finalaverageAirTemperature =   this.finalaverageAirTemperature/this.totalSensorRecords; 
-    this.finalaverageFertilizerLevels =  this.finalaverageFertilizerLevels/this.totalSensorRecords;  
-  
+    this.finalaverageFertilizerLevels =  this.finalaverageFertilizerLevels/this.totalSensorRecords;   
 })  
-
-
 
 
 //loop through the available crops to indentify the ones which need to be changed 
     this.cropService.onGet().subscribe((data) => {
 
-      this.allCrops = data.data.getAllCrops;
-      // console.log("all" +  JSON.stringify(this.allCrops))
+      if(this.finalaverageSoilMoisture == 0) {
+        window.location.reload()
+      } else {
+        this.loaded = true;
+        this.allCrops = data.data.getAllCrops;
 
       this.totalCrops = Object.keys(this.allCrops).length;
 
@@ -118,13 +109,15 @@ export class MonitorCropsComponent implements OnInit {
         }
 
         console.log("count for " + singleCropData.crop + "is " + singleCropData.severity)
-
         this.cropInfo.push(singleCropData)
 
       }      
+    }
     });
+  }
 
-    // this.finalaverageSoilMoisture =  this.monitorService.OnGetSoilMoisture()
+  navigateBack() {
+    this.router.navigate(['/'])
   }
 
 
@@ -154,7 +147,7 @@ export class MonitorCropsComponent implements OnInit {
         items: 2
       }
     },
-    nav: true
+    nav: false
   }
 
 }

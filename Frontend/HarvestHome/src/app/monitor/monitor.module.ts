@@ -7,11 +7,14 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { GraphQLModule } from '../graphql.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserModule } from '@angular/platform-browser';
+import { MaintainCropsComponent } from './maintain-crops/maintain-crops.component';
 
 
 @NgModule({
   declarations: [  
     MonitorCropsComponent,
+    MaintainCropsComponent
   ],
   exports:[  
     MonitorRoutingModule,
@@ -21,6 +24,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
   imports: [
     HttpClientModule,
     CommonModule,
+    BrowserModule,
     FormsModule,
     GraphQLModule,
     RouterModule,

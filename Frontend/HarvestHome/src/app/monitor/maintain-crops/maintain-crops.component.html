@@ -1,0 +1,68 @@
+<div class="container text-center" style="padding:10px">
+    <div class="row">
+            <div class="pricing-header mt-2 text-center">
+              <div class="row">
+                <div class="col-4"> 
+                  <a (click)="navigateBack()" class="btn btn-outline-info" style="color:black;">Go Back!</a>
+                </div>
+                <div class="col-8">
+                  <h1 class="card-header">Maintenance Plans</h1>
+                </div>
+              </div>
+            </div>
+              <div class="container" *ngIf="complete" >
+                  <div class="row">
+                      <div class="col-md-4">
+                        <p class="lead">The Recommended Maintenance Plan for the currently available crops</p>
+                          <div class="card-sl">          
+                              <a class="card-action"><i class="fa fa-heart"></i></a>
+                              <div class="card-heading">
+                                Selected Plan : {{this.finalRecommendedPlan.plan}}
+                              </div>
+                              <div class="card-text">
+                                <h3>
+                                {{this.finalRecommendedPlan.activity}}</h3>
+                              </div>
+                              <div class="card-text">
+                                
+                                Weeds : {{this.finalRecommendedPlan.removeWeeds}}
+                              </div>
+                              <div class="card-text">
+                                Water Level in Liters: {{this.finalRecommendedPlan.waterlevel}}
+                              </div>
+                              <div class="card-text">
+                                <h3>
+                                Time in Minutes: {{this.finalRecommendedPlan.requiredTimeInMins}}</h3>
+                              </div>
+                          </div>
+                        </div>
+                        <div class="col-md-8">
+                          <owl-carousel-o [options]="customOptions">                  
+                            <ng-template carouselSlide *ngFor="let slide of allMaintainPlans" style=" height: 25rem;"> 
+                              <div class="card-sl" style="width: 18rem; height: 15rem;">          
+                                <a class="card-action"><i class="fa fa-pagelines"></i></a>
+                                <div class="card-heading" >
+                                  Selected Plan : {{slide.plan}}
+                                </div>
+                                <div class="card-text">
+                                  <h3>
+                                  {{slide.activity}}</h3>
+                                </div>
+                                <div class="card-text">
+                                  <h3>
+                                  Time in Minutes: {{slide.requiredTimeInMins}}</h3>
+                                </div>
+                            </div>
+                            </ng-template>            
+                          </owl-carousel-o>
+                        </div>
+                  </div>
+                </div>
+              </div>
+
+       
+        
+
+          
+        
+     

@@ -3,10 +3,11 @@ import { GraphQLFederationModule, GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { MonitorModule } from './monitor/monitor.module';
+import { MaintainModule } from './maintain/maintain.module';
 
 
 @Module({
-  imports: [MonitorModule, GraphQLFederationModule.forRoot(
+  imports: [MonitorModule,MaintainModule, GraphQLFederationModule.forRoot(
     {
       autoSchemaFile: join(process.cwd(), 'src/graphql-schema.gql'),
     } 
