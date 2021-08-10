@@ -9,17 +9,20 @@ import { GraphQLModule } from '../graphql.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserModule } from '@angular/platform-browser';
 import { MaintainCropsComponent } from './maintain-crops/maintain-crops.component';
+import { CreateMaintenancePlansComponent } from './create-maintenance-plans/create-maintenance-plans.component';
+import { EditMaintenancePlansComponent } from "./edit-maintenance-plans/edit-maintenance-plans.component";
 
 
 @NgModule({
   declarations: [  
     MonitorCropsComponent,
-    MaintainCropsComponent
+    MaintainCropsComponent,
+    CreateMaintenancePlansComponent,
+    EditMaintenancePlansComponent
   ],
   exports:[  
     MonitorRoutingModule,
-    MonitorCropsComponent
-   
+    MonitorCropsComponent,
   ], 
   imports: [
     HttpClientModule,

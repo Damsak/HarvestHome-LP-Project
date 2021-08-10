@@ -22,7 +22,9 @@ export class MaintainCropsComponent implements OnInit {
   totalfertilizerLevelNeeded:number = 0;
   totalCropRecords:number = 0;
   complete:boolean = false;
+  // notdefaultplan:boolean = false;
   allCrops:Crop[] = [];
+  Plan:any;
 
 
   constructor(private router: Router,  private monitorService:MonitorService,private cropService:CropService) { }
@@ -80,6 +82,21 @@ export class MaintainCropsComponent implements OnInit {
     this.router.navigate(['/monitorgarden'])
   }
 
+  onEdit(id:number){
+    this.router.navigate(['/editMaintenancePlan', id])
+  }
+
+  onDelete(id:number){
+    this.monitorService.onDelete(id.toString()).subscribe((data) => {      
+    this.Plan = data;
+    console.log(JSON.stringify(this.Plan))
+    },
+    err => console.log(err)
+  );
+    //reload page after delete
+    window.location.reload();
+  }
+  
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,

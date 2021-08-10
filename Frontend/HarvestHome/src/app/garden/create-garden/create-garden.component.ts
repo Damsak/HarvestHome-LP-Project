@@ -11,6 +11,8 @@ import { GardenService } from '../garden.service';
 })
 export class CreateGardenComponent implements OnInit {
 
+  formstatus:boolean = false;
+
   constructor(private router: Router,private gardenService: GardenService) { }
 
   ngOnInit(): void {
@@ -34,11 +36,17 @@ export class CreateGardenComponent implements OnInit {
   getGardenValues(values:any){
     console.log(values);
 
+    if((values.owner == '') || (values.crops == '') ||( values.location == '') || (values.profileId == '' )) {
+      this.formstatus = true; 
+    } else {
+
     this.gardenService.onAdd(values).subscribe((data) => {
       this.router.navigate(['/gardenlist']).then(() => {
         window.location.reload();
       });
     });
+
+  }
 
     
   }

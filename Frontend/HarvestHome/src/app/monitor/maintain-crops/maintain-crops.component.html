@@ -36,10 +36,10 @@
                               </div>
                           </div>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-8" >
                           <owl-carousel-o [options]="customOptions">                  
-                            <ng-template carouselSlide *ngFor="let slide of allMaintainPlans" style=" height: 25rem;"> 
-                              <div class="card-sl" style="width: 18rem; height: 15rem;">          
+                            <ng-template carouselSlide *ngFor="let slide of allMaintainPlans" > 
+                              <div class="card-sl" style="width: 18rem;">          
                                 <a class="card-action"><i class="fa fa-pagelines"></i></a>
                                 <div class="card-heading" >
                                   Selected Plan : {{slide.plan}}
@@ -52,9 +52,21 @@
                                   <h3>
                                   Time in Minutes: {{slide.requiredTimeInMins}}</h3>
                                 </div>
+                                <div class="card-button">
+                                  <div class="col-md-6">
+                                  <button class="btn btn-primary" (click)="onEdit(slide.id)">
+                                  Edit
+                                  </button></div>
+                                  <div class="col-md-6">
+                                  <button class="btn btn-danger" (click)="onDelete(slide.id)">
+                                  Delete
+                                  </button>  
+                                  </div>
+                                  </div>
                             </div>
                             </ng-template>            
                           </owl-carousel-o>
+                          <a  routerLink = "/createMaintenancePlan" class="btn btn-outline-info" style="color:black;">Create a Custom Shedule!</a>
                         </div>
                   </div>
                 </div>

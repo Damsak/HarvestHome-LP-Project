@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import { Observable} from 'rxjs';
 import { Monitor } from './models/monitor';
 import { gql,Apollo } from 'apollo-angular';
+import { Maintain } from './models/maintain';
 
 
 
@@ -34,9 +35,51 @@ const Get_Maintain = gql`query {
   }
 }`;
 
+const Post_Maintain = gql`mutation 
+createMaintainRecord( $maintainInput: MaintainCreateDTO!) {
+  createMaintainRecord( maintainInput: $maintainInput) {
+  plan
+  removeWeeds
+  activity
+  waterlevel
+  requiredTimeInMins
+  }
+}`;
 
+const FindOne_Maintain = gql`
+query ($id: String!){
+  MaintainRecord (id:$id) {
+    id
+		plan
+    removeWeeds
+    activity
+    waterlevel
+    requiredTimeInMins
+  }
+}`;
 
+const Put_Maintain = gql`
+mutation updateMaintain($maintainUpdateInput: MaintainUpdateDTO!, $id: String!) {
+  updateMaintain(maintainUpdateInput: $maintainUpdateInput, id: $id) {
+  plan
+  removeWeeds
+  activity
+  waterlevel
+  requiredTimeInMins
+  }
+}
+`;
 
+const Delete_Maintain = gql`
+mutation deleteMaintain($id: String!) {
+  deleteMaintain(id: $id) {
+  plan
+  removeWeeds
+  requiredTimeInMins
+  waterlevel
+  }
+}
+`;
 
 
 @Injectable({
@@ -112,33 +155,61 @@ onGetAverageFactors(): Observable<any> {
 
 
 
+onAdd(maintain:Maintain): Observable<any>{
+  return this.apollo.mutate({
+      mutation: Post_Maintain,
+      variables: {
+        "maintainInput": {
+        "plan": maintain.plan,
+        "removeWeeds": maintain.removeWeeds,
+        "activity": maintain.activity,
+        "waterlevel": maintain.waterlevel,
+        "requiredTimeInMins": maintain.requiredTimeInMins
+              }
+        }
+  })
+}
+
+onUpdateMaintain(maintain:Maintain): Observable<any> {
+  return this.apollo.mutate({
+    mutation: Put_Maintain,
+    variables:  {  
+      "id": maintain.id,
+      "maintainUpdateInput": {
+        "plan": maintain.plan,
+        "removeWeeds":maintain.removeWeeds,
+        "activity": maintain.activity,
+        "waterlevel": maintain.waterlevel,
+        "requiredTimeInMins": maintain.requiredTimeInMins
+            }
+        }
+    } )
+ }
+
+ onDelete(id:string):Observable<any> {
+
+  return this.apollo.mutate({
+    mutation: Delete_Maintain,
+    variables: {
+      "id": id
+    }
+})
+
+  // .subscribe(() => this.status = 'Delete successful');
+
+}
 
 
-// onAdd(garden:Garden): Observable<any>{
-
-//   return this.apollo.mutate({
-//       mutation: Post_Garden,
-//       variables: {
-//           "gardenInput": {
-//           "owner":garden.owner,
-//           "crops":garden.crops,
-//           "location":garden.location,
-//           "profileId":garden.profileId
-//       },
-//       }
-//   })
-// }
+onGetMaintainPlan(id:string) : Observable<any> {
+     return this.apollo.query<any>({
+      query: FindOne_Maintain,
+      variables: {
+        "id": id
+      },
+    })
+  }
 
 
-
-// onGetGarden(id:string) : Observable<any> {
-//      return this.apollo.query<any>({
-//       query: FindOne_Garden,
-//       variables: {
-//         "id": id
-//       },
-//     })
-//   }
 
 
 

@@ -41,6 +41,8 @@ type Query {
 type Mutation {
   createMonitorRecord(monitorInput: MonitorCreateDTO!): Monitor!
   createMaintainRecord(maintainInput: MaintainCreateDTO!): Maintain!
+  updateMaintain(maintainUpdateInput: MaintainUpdateDTO!, id: String!): Maintain!
+  deleteMaintain(id: String!): Maintain!
 }
 
 input MonitorCreateDTO {
@@ -53,6 +55,14 @@ input MonitorCreateDTO {
 }
 
 input MaintainCreateDTO {
+  plan: String!
+  removeWeeds: String!
+  activity: String!
+  waterlevel: Float!
+  requiredTimeInMins: Float!
+}
+
+input MaintainUpdateDTO {
   plan: String!
   removeWeeds: String!
   activity: String!

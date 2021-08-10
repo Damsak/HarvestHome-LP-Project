@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DeleteResult, Repository, UpdateResult } from 'typeorm';
+import { DeleteResult, Repository } from 'typeorm';
 import { CropCreateDTO } from './dto/create-crop.input';
 import { CropUpdateDTO } from './dto/update-crop.input';
 import { Crop } from './entity/crop.entity';

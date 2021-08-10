@@ -12,8 +12,6 @@ import {Router} from "@angular/router";
 })
 export class MonitorCropsComponent implements OnInit {
 
-
-
   constructor(private router: Router,private monitorService:MonitorService, private cropService:CropService) { }
 
   allSensorRecords:any;
@@ -50,6 +48,8 @@ export class MonitorCropsComponent implements OnInit {
 
 //loop through the available crops to indentify the ones which need to be changed 
     this.cropService.onGet().subscribe((data) => {
+
+      console.log("FinalaveragesoilMois = " + this.finalaverageSoilMoisture)
 
       if(this.finalaverageSoilMoisture == 0) {
         window.location.reload()
@@ -98,19 +98,17 @@ export class MonitorCropsComponent implements OnInit {
           console.log("Fertilizer levels,crop need " + this.allCrops[j].fertilizerLevels + " Average  " + this.finalaverageFertilizerLevels)
         }
 
-
         //calculate the severity based on the number of factors with issues
         if( count == 1 ) {
           singleCropData.severity = "Low"
+          this.cropInfo.push(singleCropData)
         } else if ( count == 2) {
           singleCropData.severity = "Medium"
+          this.cropInfo.push(singleCropData)
         } else  if ( count == 3) {
           singleCropData.severity = "High"
+          this.cropInfo.push(singleCropData)
         }
-
-        console.log("count for " + singleCropData.crop + "is " + singleCropData.severity)
-        this.cropInfo.push(singleCropData)
-
       }      
     }
     });

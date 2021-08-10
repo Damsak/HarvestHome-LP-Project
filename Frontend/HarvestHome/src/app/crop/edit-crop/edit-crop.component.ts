@@ -40,6 +40,8 @@ export class EditCropComponent implements OnInit {
 
   cropToBeUpdated:any;
 
+  formstatus:boolean = false;
+
 
 
   constructor(private router: Router,private route: ActivatedRoute, private cropService: CropService,private apollo:Apollo) {
@@ -68,13 +70,18 @@ export class EditCropComponent implements OnInit {
     }
   }
 
-  updateCrop(values:Crop){
+  updateCrop(values:any){
+
+    if((values.crop == '') || (values.GardenId == '') ||( values.soilMoisture == '') || (values.airTemperature == '' )|| (values.fertilizerLevels == '' )) {
+      this.formstatus = true; 
+    } else {
 
     this.cropService.onUpdateCrop(values).subscribe((data) => {
       this.router.navigate(['/croplist']).then(() => {
         window.location.reload();
       });
     });
+  }
   }
 
 

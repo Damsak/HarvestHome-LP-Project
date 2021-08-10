@@ -1,0 +1,55 @@
+<!-- <app-header></app-header> -->
+<div class="card">
+    <div class="card-header text-center" style="width: 50%; margin: 0 auto; font-family: 'Oswald'">
+        <h1>Add a Maintenance Plan</h1>
+    </div>
+    <div class="col-sm-3 sidenav" style="width: 200px;">
+        <button type="button" class="btn btn-secondary" (click)="navigateBack()" style="width: 200px; margin-left: 10px;"> Go back </button> 
+    </div>
+    <div class="card-body" style="width:1000px; margin:0 auto; border-radius: 5; border: 2px solid #161615; border-radius: 10px; margin-bottom: 20px;">
+        <div class="alert alert-danger" role="alert" *ngIf = "formstatus">
+            <h4 class="alert-heading">Error!</h4>
+            <hr>
+            <p class="mb-0">Please Fill all the required Fields to Submit!</p>
+        </div>
+         <!-- Create "ngSubmit" event and send data -->
+         <form #maintainForm = "ngForm" (ngSubmit) = "getMaintainValues(maintainForm.value)" >
+            <div class="form-group">
+                <label for="plan">Plan</label>
+              <!-- create Template variable firstName and use value as ngModel. Then Angular set this template variable to this ngModel directive -->
+                <input type="text" ngModel name="plan" required   #plan ="ngModel" class="form-control" id="plan"  placeholder="Enter Plan - Letter">
+                
+              <!--ngModel object contains these fields like touch, valid which is used to validate.  -->
+                <div class="alert alert-danger" *ngIf=" plan.touched && !plan.valid"> Plan is required</div>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="removeWeeds">Remove weeds</label>
+                <input type="text" class="form-control" id="removeWeeds"   required   #removeWeeds ="ngModel" ngModel name="removeWeeds" placeholder="Enter the status of Weeds">
+                <div class="alert alert-danger" *ngIf=" removeWeeds.touched && !removeWeeds.valid">Remove weed is required</div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="activity">Activity</label>
+                <input type="text" class="form-control" id="activity"  required   #activity ="ngModel" ngModel name="activity" placeholder="Enter the activity">
+                <div class="alert alert-danger" *ngIf=" activity.touched && !activity.valid"> Activity is required</div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="waterlevel">Water Level</label>
+                <input type="number" class="form-control" id="waterlevel"  required   #waterlevel ="ngModel" ngModel name="waterlevel" placeholder="Enter Water Level">
+                <div class="alert alert-danger" *ngIf=" waterlevel.touched && !waterlevel.valid"> Water Level is required</div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="requiredTimeInMins">Required Time</label>
+                <input type="number" class="form-control" id="requiredTimeInMins"  required   #requiredTimeInMins ="ngModel" ngModel name="requiredTimeInMins" placeholder="Enter the required Time in Minutes">
+                <div class="alert alert-danger" *ngIf="requiredTimeInMins.touched && !requiredTimeInMins.valid"> Time is required</div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+  </div>
+</div>

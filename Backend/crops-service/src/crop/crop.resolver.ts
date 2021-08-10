@@ -41,7 +41,7 @@ export class CropResolver {
             "fertilizerLevels": crop.fertilizerLevels
         }
 
-        console.log("Received  " + id + ">>" + JSON.stringify(crop))
+        //console.log("Received  " + id + ">>" + JSON.stringify(crop))
 
         return this.cropService.update(id,this.cropToBeUpdate);
     }

@@ -38,6 +38,8 @@ export class EditGardenComponent implements OnInit {
 
   gardenToBeUpdated:any;
 
+  formstatus:boolean = false;
+
 
 
   constructor(private router: Router,private route: ActivatedRoute, private gardenService: GardenService,private apollo:Apollo) {
@@ -105,11 +107,18 @@ export class EditGardenComponent implements OnInit {
 
   updateGarden(values:Garden){
 
+
+    if((values.owner == '') || (values.crops == '') ||( values.location == '') || (values.profileId == '' )) {
+      this.formstatus = true; 
+    } else {
+
     this.gardenService.onUpdateGarden(values).subscribe((data) => {
       this.router.navigate(['/gardenlist']).then(() => {
         window.location.reload();
       });
     });
+
+  }
 
   }
 
