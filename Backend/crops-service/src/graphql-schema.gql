@@ -19,6 +19,8 @@ type Crop {
   soilMoisture: Float!
   airTemperature: Float!
   fertilizerLevels: Float!
+  amount: Float!
+  unitPrice: Float!
 }
 
 type Query {
@@ -38,6 +40,8 @@ input CropCreateDTO {
   soilMoisture: Float!
   airTemperature: Float!
   fertilizerLevels: Float!
+  amount: Float!
+  unitPrice: Float!
 }
 
 input CropUpdateDTO {
@@ -46,4 +50,6 @@ input CropUpdateDTO {
   soilMoisture: Float!
   airTemperature: Float!
   fertilizerLevels: Float!
+  amount: Float!
+  unitPrice: Float!
 }

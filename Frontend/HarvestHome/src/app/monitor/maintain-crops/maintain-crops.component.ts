@@ -44,8 +44,7 @@ export class MaintainCropsComponent implements OnInit {
 
       }
 
-      //Assumption
-      //Normally a garden contains less than 5 different crops.
+      //Assumption -Normally a garden contains less than 5 different crops.
       // If a garden contains more than 5 the crops need atleast 45 min(plan c) maintenance
       if(this.totalCropRecords > 5) {
         this.recommendedPlan = "C";
@@ -69,7 +68,7 @@ export class MaintainCropsComponent implements OnInit {
             this.finalRecommendedPlan = this.allMaintainPlans[j]
             this.complete = true;
             
-            console.log("Equalledd" +  JSON.stringify(this.finalRecommendedPlan));
+           // console.log("Equalledd" +  JSON.stringify(this.finalRecommendedPlan));
             return;
           }
         }

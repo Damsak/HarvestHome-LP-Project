@@ -14,7 +14,8 @@ import { HomeComponent } from './home/home.component';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DefaultModule } from './Informationlayouts/default/default.module';
+// import { DefaultModule } from './Informationlayouts/default/default.module';
+import { InformationModule } from './Informationmodules/information.module'
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -28,11 +29,12 @@ import { initializeKeycloak } from './auth/app.init'
     HomeComponent,
   ],
   imports: [
+    InformationModule,
     CommonModule,
     BrowserModule,
     RouterModule,
     AppRoutingModule,
-    DefaultModule,
+    // DefaultModule,
     FormsModule,
     GardenModule,
     MonitorModule,

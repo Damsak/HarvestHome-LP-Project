@@ -13,5 +13,9 @@ export class CropCreateDTO {
     airTemperature: number
     @Field()
     fertilizerLevels: number
+    @Field()
+    amount: number
+    @Field()
+    unitPrice: number
 
 }

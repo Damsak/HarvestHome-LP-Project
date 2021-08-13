@@ -1,34 +1,65 @@
-<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
-  <div class="col-sm-3 sidenav" style="width: 200px;">
-    <button type="button" routerLink = "/" class="btn btn-secondary" style="width: 150px; margin-left: 10px;"> Go back </button> 
+<div class="container text-center" style="padding:10px">
+  <div class="row" style="margin-bottom: 2px;">
+    <div class="col-1"> 
+      <a class="btn btn-outline-info" routerLink = "/" style="color:black;">Return</a>
+    </div>
+    <div class="col-11">
+      <h1 class="card-header">Potential Outcomes</h1>
+    </div>
   </div>
-  <div fxFlex="60">
-        <div class="row">
-            
-            <div class="col-sm">
-                <div class="card" style="width: 18rem;">
-                  <img  width="200px" height="140px"  src="/assets/dashboard.png" class="card-img-top">
-                  <div class="card-body">
-                    <h5 class="card-title">Cute Horse</h5>
-                    <p class="card-text">Some quick example text's content.</p>
-                    <a class="btn btn-primary">View Horse</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm">
-                <div class="card" style="width: 18rem;">
-                  <img  width="200px" height="140px"  src="/assets/dashboard.png" class="card-img-top">
-                  <div class="card-body">
-                    <h5 class="card-title">Cute Horse</h5>
-                    <p class="card-text">Some quick example text's content.</p>
-                    <a class="btn btn-primary">View Horse</a>
-                  </div>
-                </div>
-              </div>
-        </div>
 
+  <div class="row" style="padding: 10px 20px;border-radius: 50px;color: #333;background: #fff;box-shadow: 0 3px 20px 0 #0000003b;"> 
+    <div class="col-5">
+      <div class="row gy-5" >
+        <div class="col-4">
+          <!-- <app-widget-card label="Total Cost" total="{{this.totalcost}}" percentage="50" ></app-widget-card> -->
+            <div class="card bg-c-blue order-card">
+              <div class="card-block">
+                <h2 class="m-b-20">Current Value</h2>
+                <br>
+                <h1 class="text-right"><span>Rs {{this.totalcost}}</span></h1>
+                <h6><i class="fa fa-usd"></i></h6>
+              </div>
+          </div>
+      </div>
+        <div class="col-8">
+          <div class="card bg-c-pink order-card" style=" height: 180px; ">          
+                <div class="card-block">
+                  <h2 class="m-b-20">Return on Investment</h2>
+                  <br>
+                  <h1 class="text-right"><span>Rs {{this.totalcost}}</span></h1>
+                  <h6><i class="fa fa-usd"></i></h6>
+                </div>
+          </div>
+      </div>        
+      </div>
+
+      <div class="row gy-5">     
+        <div class="col-4">
+          <h4>Total Cost</h4>
+            <div class="card bg-c-yellow order-card">
+              <div class="card-block">
+                <h2 class="m-b-20">Spent</h2>
+                <br>
+                <h1 class="text-right"><span>Rs {{this.totalcost}}</span></h1>
+                <h6><i class="fa fa-money"></i></h6>
+              </div>
+          </div>
+      </div>
+        <div class="col-8">
+          <h4>Currently Available crops and Cost</h4>
+          <div class="card bg-c-blue order-card" style=" height: 180px; overflow: auto;">  
+            <div class="card bg-c-blue order-card" *ngFor="let crop of finalValues;">
+              <div class="card-block">
+                  <h4 class="m-b-20">{{crop}} </h4>
+              </div>
+            </div>
+          </div>
+      </div>        
+      </div>
     </div>
-    <div fxFlex="40">
-        <app-widget-pie ></app-widget-pie>
+    <div class="col-7">
+      <app-widget-pie ></app-widget-pie>
     </div>
+  </div>
 </div>

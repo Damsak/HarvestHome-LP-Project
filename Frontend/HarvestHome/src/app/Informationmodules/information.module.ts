@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DefaultComponent } from './default.component';
 import { DashboardComponent } from 'src/app/Informationmodules/dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -12,7 +11,6 @@ import { ProfitComponent } from 'src/app/Informationmodules/profit/profit.compon
 
 @NgModule({
   declarations: [
-    DefaultComponent,
     DashboardComponent,
     ProfitComponent
   ],
@@ -26,4 +24,4 @@ import { ProfitComponent } from 'src/app/Informationmodules/profit/profit.compon
     MatCardModule
   ]
 })
-export class DefaultModule { }
+export class InformationModule { }

@@ -1,10 +1,8 @@
 
-  <div class="container text-center" style="padding:10px" *ngIf="loaded">
-
-    <div class="row">
+  <div class="container text-center"  *ngIf="loaded">
+    <div class="row" style="padding: 10px 20px;border-radius: 50px;color: #333;background: #fff;box-shadow: 0 3px 20px 0 #0000003b;">
       <div class="col-8" >
-
-        <div class="row">
+        <div class="row" >
           <div class="col-4"> 
             <a (click)="navigateBack()" class="btn btn-outline-info" style="color:black;">Go Back!</a>
           </div>
@@ -12,12 +10,7 @@
             <h1 class="card-header">Identified Issues</h1>
           </div>
         </div>
-        <!-- <div><h1 class="card-header">Identified Issues</h1></div> -->
-
-
         <owl-carousel-o [options]="customOptions">
-
-
           <ng-template carouselSlide  *ngFor="let slide of cropInfo"> 
 
             <!-- <div class="card" style="width: 18rem; padding: 5px; color: rgb(78, 56, 56);
@@ -71,69 +64,53 @@
           </div>      
           </ng-template>  
         </owl-carousel-o>
-
-        <br/>
         <br/>
     
-        <div><button class="btn btn-primary btn-lg" routerLink = "/maintaingarden" > Go to Crop Maintenance! </button></div>
+      <div><button class="btn btn-primary btn-lg" routerLink = "/maintaingarden" > Go to Crop Maintenance! </button></div>
       </div>
       <div class="col-4">
-
- 
-        <!-- soil moisture levels, air temperature, soil temperature, fertilizer levels, and ambient light levels -->
         <h1 class="card-header">Average Levels</h1>   
-
         <div class="container2 overflow-hidden " id="status"> 
-        
-          <div class="row gy-5" style="color: rgb(78, 56, 56);padding:  15px;border: 5px solid #555555 ;border-radius: 70px;">
+          <div class="row gy-5" >
           <div class="col-6">
-            <div class="p-3 border bg-light">
-              <div>
-                <h5 class="card-title">Total Records</h5>
-                <h1>{{totalSensorRecords}}</h1>
-                <a class="btn btn-primary">Sensor Records</a>
+              <div class="card bg-c-blue order-card">
+                <div class="card-block">
+                    <h2 class="m-b-20">Total Sensor Records</h2>
+                    <h1 class="text-right"><span>{{totalSensorRecords}}</span></h1>
+                    <h6><i class="fa fa-plus-square"></i></h6>
+                </div>
               </div>
-            </div>
+
           </div>        
             <div class="col-6">
-              <div class="p-3 border bg-light">
-                <div>
-                  <h5 class="card-title">soil moisture levels</h5>
-                  <h1>{{finalaverageSoilMoisture}} %</h1>
-                  <a class="btn btn-primary">Soil Moisture Levels</a>
+                <div class="card bg-c-green order-card">
+                  <div class="card-block">
+                      <h2 class="m-b-20">Soil moisture levels</h2>
+                      <h1 class="text-right"><span>{{finalaverageSoilMoisture}} %</span></h1>
+                      <h6><i class="fa fa-tree"></i></h6>
+                  </div>
                 </div>
-              </div>
             </div>
             <div class="col-6">
-              <div class="p-3 border bg-light">
-                <div>
-                  <h5 class="card-title">air temperature</h5>
-                  <h1>{{finalaverageAirTemperature}} %</h1>
-                  <a class="btn btn-primary">Air Temperature</a>
+                <div class="card bg-c-yellow order-card">
+                  <div class="card-block">
+                      <h2 class="m-b-20">Air temperature</h2>
+                      <h1 class="text-right"><span>{{finalaverageAirTemperature}} %</span></h1>
+                      <h6><i class="fa fa-thermometer-quarter"></i></h6>
+                  </div>
                 </div>
-              </div>
             </div>
   
             <div class="col-6">
-              <div class="p-3 border bg-light">
-                <div>
-                  <h5 class="card-title">fertilizer levels</h5>
-                  <h1>{{finalaverageFertilizerLevels}} %</h1>
-                  <a href="/gardenlist" class="btn btn-primary">List My Gardens</a>
+                <div class="card bg-c-pink order-card">
+                  <div class="card-block">
+                      <h2 class="m-b-20">Fertilizer levels</h2>
+                      <h1 class="text-right"><span>{{finalaverageFertilizerLevels}} %</span></h1>
+                      <h6><i class="fa fa-level-up"></i></h6>
+                  </div>
                 </div>
-              </div>
             </div>
           </div>
-          <!-- <div class="row gy-5">
-            <div class="col-6">
-              <div class="p-3 border bg-light">Custom column padding</div>
-            </div>
-            <div class="col-6">
-              <div class="p-3 border bg-light">Custom column padding</div>
-            </div>
-          </div> -->
-
-          
         </div>
 
 

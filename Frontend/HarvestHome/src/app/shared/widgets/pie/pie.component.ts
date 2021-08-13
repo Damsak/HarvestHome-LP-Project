@@ -50,33 +50,33 @@ export class PieComponent implements OnInit {
         enable: true
       },
       series: [{
-          name: 'Brands',
+          name: 'Crops',
           colorByPoint: true,
           data: [{
-              name: 'Chrome',
+              name: 'Chilli',
               y: 61.41,
               sliced: true,
               selected: true
           }, {
-              name: 'Internet Explorer',
+              name: 'Salad Leaves',
               y: 11.84
           }, {
-              name: 'Firefox',
+              name: 'Potatoes',
               y: 10.85
           }, {
-              name: 'Edge',
+              name: 'Peas',
               y: 4.67
           }, {
-              name: 'Safari',
+              name: 'onions',
               y: 4.18
           }, {
-              name: 'Sogou Explorer',
+              name: 'Mango',
               y: 1.64
           }, {
-              name: 'Opera',
+              name: 'Coconut',
               y: 1.6
           }, {
-              name: 'QQ',
+              name: 'Banana',
               y: 1.2
           }, {
               name: 'Other',

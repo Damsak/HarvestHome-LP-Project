@@ -32,6 +32,8 @@ export class EditCropComponent implements OnInit {
   soilMoisture:any;
   airTemperature:any;
   fertilizerLevels:any;
+  amount:any;
+  unitPrice:any;
 
 
   paramId: any;
@@ -63,16 +65,17 @@ export class EditCropComponent implements OnInit {
             this.soilMoisture = data.data.crop.soilMoisture;
             this.airTemperature = data.data.crop.airTemperature;
             this.fertilizerLevels = data.data.crop.fertilizerLevels;
+            this.amount = data.data.crop.amount;
+            this.unitPrice = data.data.crop.unitPrice
           },
           err => console.log(err)
         )
-
     }
   }
 
   updateCrop(values:any){
 
-    if((values.crop == '') || (values.GardenId == '') ||( values.soilMoisture == '') || (values.airTemperature == '' )|| (values.fertilizerLevels == '' )) {
+    if((values.crop == '') || (values.GardenId == '') ||( values.soilMoisture == '') || (values.airTemperature == '' )|| (values.fertilizerLevels == '' )|| (values.amount == '' )|| (values.unitPrice == '' )) {
       this.formstatus = true; 
     } else {
 

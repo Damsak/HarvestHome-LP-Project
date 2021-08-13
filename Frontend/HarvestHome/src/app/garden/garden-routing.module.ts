@@ -16,6 +16,13 @@ const routes: Routes = [
     { path:'gardencreate', component:CreateGardenComponent , canActivate:[AuthGuard]},
     { path:'gardenedit/:id' , component:EditGardenComponent, canActivate:[AuthGuard]}, 
     { path:'gardencrops', component: CropsGardenComponent, canActivate:[AuthGuard]}
+
+
+    // { path:'homegarden', component:HomeGardenComponent},
+    // { path:'gardenlist' , component:ListGardenComponent},
+    // { path:'gardencreate', component:CreateGardenComponent},
+    // { path:'gardenedit/:id' , component:EditGardenComponent}, 
+    // { path:'gardencrops', component: CropsGardenComponent}
 ]
 
 @NgModule({

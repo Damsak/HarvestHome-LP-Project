@@ -23,5 +23,11 @@ export class Crop {
     @Field()
     @Column()
     fertilizerLevels: number
+    @Field()
+    @Column()
+    amount: number
+    @Field()
+    @Column()
+    unitPrice: number
 
 }

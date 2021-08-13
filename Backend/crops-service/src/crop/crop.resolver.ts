@@ -38,7 +38,9 @@ export class CropResolver {
             "GardenId": crop.GardenId,
             "soilMoisture": crop.soilMoisture,
             "airTemperature": crop.airTemperature,
-            "fertilizerLevels": crop.fertilizerLevels
+            "fertilizerLevels": crop.fertilizerLevels,
+            "amount": crop.amount,
+            "unitPrice": crop.unitPrice
         }
 
         //console.log("Received  " + id + ">>" + JSON.stringify(crop))

@@ -6,4 +6,6 @@ export interface Crop {
     soilMoisture: number
     airTemperature: number
     fertilizerLevels: number
+    amount:number
+    unitPrice:number
 }

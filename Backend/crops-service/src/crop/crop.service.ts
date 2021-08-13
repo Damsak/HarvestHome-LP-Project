@@ -33,7 +33,9 @@ export class CropService {
             "GardenId": crop.GardenId,
             "soilMoisture": crop.soilMoisture,
             "airTemperature": crop.airTemperature,
-            "fertilizerLevels": crop.fertilizerLevels
+            "fertilizerLevels": crop.fertilizerLevels,
+            "amount": crop.amount,
+            "unitPrice": crop.unitPrice
         }
        return this.cropRepository.save(this.cropToBeUpdate);
     }

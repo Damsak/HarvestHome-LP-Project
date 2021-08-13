@@ -14,6 +14,8 @@ const Get_Crops = gql`query {
     soilMoisture
     airTemperature
     fertilizerLevels
+    amount
+    unitPrice
   }
 }`;
 
@@ -25,6 +27,8 @@ mutation createCrop( $cropInput: CropCreateDTO!) {
   soilMoisture
   airTemperature
   fertilizerLevels
+  amount
+  unitPrice
   }
 }
 `;
@@ -37,6 +41,8 @@ mutation updateCrop($cropUpdateInput: CropUpdateDTO!, $id: String!) {
   soilMoisture,
   airTemperature,
   fertilizerLevels,
+  amount
+  unitPrice
   }
 }
 `;
@@ -51,6 +57,8 @@ mutation deleteCrop($id: String!) {
   soilMoisture
   airTemperature
   fertilizerLevels
+  amount
+  unitPrice
   }
 }
 `;
@@ -64,6 +72,8 @@ query ($id: String!){
   soilMoisture
   airTemperature
   fertilizerLevels
+  amount
+  unitPrice
   }
 }
 `;
@@ -83,11 +93,11 @@ export class CropService {
     rootCrops: any;
     selectedCrop:any;
 
-    id:any;
-    owner:any;
-    crops:any;
-    location:any;
-    profileId:any;
+    // id:any;
+    // owner:any;
+    // crops:any;
+    // location:any;
+    // profileId:any;
    
 
 constructor(private http:HttpClient,private apollo:Apollo,private router: Router) {}
@@ -126,7 +136,9 @@ onAdd(crop:Crop): Observable<any>{
                 "GardenId":crop.GardenId,
                 "soilMoisture": crop.soilMoisture,
                 "airTemperature": crop.airTemperature,
-                "fertilizerLevels": crop.fertilizerLevels
+                "fertilizerLevels": crop.fertilizerLevels,
+                "amount":crop.amount,
+                "unitPrice":crop.unitPrice
                 }
                 }
   })
@@ -158,7 +170,9 @@ onGetGarden(id:string) : Observable<any> {
           "GardenId": crop.GardenId,
           "soilMoisture": crop.soilMoisture,
           "airTemperature": crop.airTemperature,
-          "fertilizerLevels": crop.fertilizerLevels
+          "fertilizerLevels": crop.fertilizerLevels,
+          "amount":crop.amount,
+          "unitPrice":crop.unitPrice
               }
           }
   })

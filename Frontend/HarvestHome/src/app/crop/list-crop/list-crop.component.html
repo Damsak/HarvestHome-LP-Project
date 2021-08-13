@@ -18,6 +18,8 @@
                 <th scope="col">soilMoisture</th>
                 <th scope="col">airTemperature</th>
                 <th scope="col">fertilizerLevels</th>
+                <th scope="col">amount</th>
+                <th scope="col">unitPrice</th>
                 <th>Edit</th>
                 <th>Delete</th>
                 </tr>
@@ -29,6 +31,8 @@
                 <td>{{crop.soilMoisture}}</td>
                 <td>{{crop.airTemperature}}</td>
                 <td>{{crop.fertilizerLevels}}</td>
+                <td>{{crop.amount}}</td>
+                <td>{{crop.unitPrice}}</td>
                 <td><button class="btn btn-primary" (click)="editCrop(crop.id)">
                 Edit
                 </button>

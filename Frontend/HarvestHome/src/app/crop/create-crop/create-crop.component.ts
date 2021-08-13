@@ -25,7 +25,7 @@ export class CreateCropComponent implements OnInit {
 
   getCropValues(values:any){
 
-    if((values.crop == '') || (values.GardenId == '') ||( values.soilMoisture == '') || (values.airTemperature == '' )|| (values.fertilizerLevels == '' )) {
+    if((values.crop == '') || (values.GardenId == '') ||( values.soilMoisture == '') || (values.airTemperature == '' )|| (values.fertilizerLevels == '' ) || (values.amount == '' )|| (values.unitPrice == '' )) {
       this.formstatus = true; 
     } else {
     this.cropService.onAdd(values).subscribe((data) => {
